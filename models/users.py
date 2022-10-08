@@ -1,6 +1,6 @@
 import uuid
 
-from sqlalchemy import Boolean, Column, String
+from sqlalchemy import Boolean, Column, String, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 
 from migrator.base import DeclarativeBase

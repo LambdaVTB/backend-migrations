@@ -1,13 +1,17 @@
 from models.users import Users
-from models.users_jobs import UsersJobs
 from models.news import News
-from models.jobs_news import JobsNews
 from models.jobs import Jobs
+from models.tags import Tags
+from models.tags_jobs import TagsJobs
+from models.tags_news import TagsNews
+from models.jobs_news import JobsNews
 
 __all__ = [
     "Users",
-    "UsersJobs",
     "News",
     "JobsNews",
-    "Jobs"
+    "Jobs",
+    "Tags",
+    "TagsJobs",
+    "TagsNews",
 ]

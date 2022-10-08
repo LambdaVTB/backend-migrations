@@ -17,8 +17,9 @@ class News(DeclarativeBase):
     summary = Column(String, nullable=True)
     raw_text = Column(String, nullable=False)
     url = Column(String, nullable=False)
+    title = Column(String, nullable=False)
     processed = Column(Boolean, nullable=False, default=False)
-    created_at = Column(DateTime, nullable=False, default=datetime.now())
+    created_at = Column(DateTime(timezone=True), nullable=False)
     
     __ts_vector__ = Column(TSVector(), Computed("to_tsvector('russian', raw_text)", persisted=True))
 
