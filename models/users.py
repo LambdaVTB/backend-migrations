@@ -12,5 +12,5 @@ class Users(DeclarativeBase):
     id = Column(UUID, primary_key=True, default=lambda: str(uuid.uuid4()))
     username = Column(String, unique=True, nullable=False)
     password = Column(String, nullable=False)
-    job_id = Column(UUID, ForeignKey(Jobs.id, ondelete="CASCADE"), nullable=False)
+    job_id = Column(UUID, ForeignKey(Jobs.id, ondelete="CASCADE"), nullable=True)
 
