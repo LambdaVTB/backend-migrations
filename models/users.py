@@ -4,12 +4,13 @@ from sqlalchemy import Boolean, Column, String
 from sqlalchemy.dialects.postgresql import UUID
 
 from migrator.base import DeclarativeBase
-
+from models.jobs import Jobs
 
 class Users(DeclarativeBase):
     __tablename__ = "users"
 
     id = Column(UUID, primary_key=True, default=lambda: str(uuid.uuid4()))
-    username = Column(String, nullable=False)
-
+    username = Column(String, unique=True, nullable=False)
+    password = Column(String, nullable=False)
+    job_id = Column(UUID, ForeignKey(Jobs.id, ondelete="CASCADE"), nullable=False)
 
