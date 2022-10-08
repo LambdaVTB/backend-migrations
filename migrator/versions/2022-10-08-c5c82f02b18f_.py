@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 8a4bb95aaec2
+Revision ID: c5c82f02b18f
 Revises: 
-Create Date: 2022-10-08 21:40:04.432448
+Create Date: 2022-10-08 23:17:27.558903
 
 """
 from alembic import op
@@ -11,7 +11,7 @@ import models.news
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision = '8a4bb95aaec2'
+revision = 'c5c82f02b18f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -44,10 +44,12 @@ def upgrade() -> None:
     op.create_table('news',
     sa.Column('id', postgresql.UUID(), nullable=False),
     sa.Column('title', sa.String(), nullable=False),
+    sa.Column('summary', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=False),
     sa.Column('news_type', sa.Enum('DIGEST', 'INSIGHT', 'TREND', name='newstypes'), nullable=False),
-    sa.Column('source', postgresql.UUID(), nullable=True),
-    sa.ForeignKeyConstraint(['source'], ['raw.id'], name=op.f('fk__news__source__raw')),
+    sa.Column('original', postgresql.UUID(), nullable=True),
+    sa.Column('source', sa.String(), nullable=True),
+    sa.ForeignKeyConstraint(['original'], ['raw.id'], name=op.f('fk__news__original__raw')),
     sa.PrimaryKeyConstraint('id', name=op.f('pk__news'))
     )
     op.create_table('tags_jobs',
