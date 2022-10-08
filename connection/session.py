@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 
-from service.config import get_settings
+from service.configs.get_settings import get_postgres_settings
 
 
 class SessionManager:
@@ -23,7 +23,7 @@ class SessionManager:
         return sessionmaker(self.engine, class_=AsyncSession, expire_on_commit=False)
 
     def refresh(self) -> None:
-        self.engine = create_async_engine(get_settings().database_uri, echo=True, future=True)
+        self.engine = create_async_engine(get_postgres_settings().db_uri, echo=True, future=True)
 
 
 async def get_session() -> AsyncSession:

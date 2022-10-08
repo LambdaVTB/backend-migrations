@@ -5,7 +5,7 @@ import sqlalchemy as sa
 from sqlalchemy import Boolean, Column, String, DateTime, Enum, Computed, Index
 from sqlalchemy.dialects.postgresql import UUID, TSVECTOR
 
-from migrator.base import DeclarativeBase
+from migrations.migrator.base import DeclarativeBase
 
 class TSVector(sa.types.TypeDecorator):
     impl = TSVECTOR

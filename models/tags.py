@@ -3,7 +3,7 @@ import uuid
 from sqlalchemy import Boolean, Column, String
 from sqlalchemy.dialects.postgresql import UUID, TSVECTOR
 
-from migrator.base import DeclarativeBase
+from migrations.migrator.base import DeclarativeBase
 
 class Tags(DeclarativeBase):
     __tablename__ = "tags"
