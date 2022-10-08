@@ -8,6 +8,8 @@ authors = ["huscker <egostalker03@mail.ru>"]
 python = "^3.9"
 alembic = "^1.8.1"
 psycopg2 = "^2.9.4"
+python-jose = "^3.3.0"
+aiologger = "^0.7.0"
 
 [tool.poetry.dev-dependencies]
 
