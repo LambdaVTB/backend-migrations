@@ -10,6 +10,9 @@ downgrade:
 revision:
 	cd migrator && alembic revision --autogenerate
 
+prepare:
+	poetry install
+
 shell:
 	poetry shell 
 
