@@ -6,7 +6,6 @@ from sqlalchemy import Boolean, Column, String, DateTime, Enum, Computed, Index
 from sqlalchemy.dialects.postgresql import UUID, TSVECTOR
 
 from migrator.base import DeclarativeBase
-from migrator.enums.news_state import NewsState
 
 class TSVector(sa.types.TypeDecorator):
     impl = TSVECTOR
@@ -17,7 +16,7 @@ class News(DeclarativeBase):
     id = Column(UUID, primary_key=True, default=lambda: str(uuid.uuid4()))
     summary = Column(String, nullable=True)
     raw_text = Column(String, nullable=False)
-    state = Column(Enum(NewsState), nullable=False, default=NewsState.NEED_PROCESSING)
+    processed = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime, nullable=False, default=datetime.now())
     
     __ts_vector__ = Column(TSVector(), Computed("to_tsvector('russian', raw_text)", persisted=True))

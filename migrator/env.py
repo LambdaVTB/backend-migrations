@@ -7,7 +7,7 @@ from sqlalchemy import pool
 from alembic import context
 
 from migrator.base import DeclarativeBase
-from migrator.models import *
+from models import *
 
 
 # this is the Alembic Config object, which provides

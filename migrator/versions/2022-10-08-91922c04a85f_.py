@@ -1,17 +1,17 @@
 """empty message
 
-Revision ID: ddcf0226eb7e
+Revision ID: 91922c04a85f
 Revises: 
-Create Date: 2022-10-08 02:15:19.313766
+Create Date: 2022-10-08 03:02:45.314725
 
 """
 from alembic import op
 import sqlalchemy as sa
-import migrator.models.news
+import models.news
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision = 'ddcf0226eb7e'
+revision = '91922c04a85f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,9 +28,9 @@ def upgrade() -> None:
     sa.Column('id', postgresql.UUID(), nullable=False),
     sa.Column('summary', sa.String(), nullable=True),
     sa.Column('raw_text', sa.String(), nullable=False),
-    sa.Column('state', sa.Enum('PROCESSED', 'NEED_PROCESSING', name='newsstate'), nullable=False),
+    sa.Column('processed', sa.Boolean(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
-    sa.Column('__ts_vector__', migrator.models.news.TSVector(), sa.Computed("to_tsvector('russian', raw_text)", persisted=True), nullable=True),
+    sa.Column('__ts_vector__', models.news.TSVector(), sa.Computed("to_tsvector('russian', raw_text)", persisted=True), nullable=True),
     sa.PrimaryKeyConstraint('id', name=op.f('pk__news'))
     )
     op.create_index('ix_video_ts_vector__', 'news', ['__ts_vector__'], unique=False, postgresql_using='gin')
