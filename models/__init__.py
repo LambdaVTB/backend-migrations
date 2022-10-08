@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from .users import Users
 from .news import News
 from .jobs import Jobs
@@ -15,3 +16,5 @@ __all__ = [
     "TagsJobs",
     "TagsNews",
 ]
+=======
+>>>>>>> ad27ad4df0b6b115f2cc076f9d9441ac770f294f
