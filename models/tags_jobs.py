@@ -3,9 +3,9 @@ import uuid
 from sqlalchemy import Boolean, Column, String, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID, TSVECTOR
 
-from migrations.migrator.base import DeclarativeBase
-from migrations.models.jobs import Jobs
-from migrations.models.tags import Tags
+from migrator.base import DeclarativeBase
+from models.jobs import Jobs
+from models.tags import Tags
 
 class TagsJobs(DeclarativeBase):
     __tablename__ = "tags_jobs"

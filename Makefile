@@ -2,13 +2,13 @@ include .env
 export
 
 migrate:
-	cd migrator && alembic upgrade head
+	cd migrator && poetry run alembic upgrade head
 
 downgrade:
-	cd migrator && alembic downgrade -1
+	cd migrator && poetry run alembic downgrade -1
 
 revision:
-	cd migrator && alembic revision --autogenerate
+	cd migrator && poetry run alembic revision --autogenerate
 
 prepare:
 	poetry install

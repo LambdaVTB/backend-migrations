@@ -3,7 +3,7 @@ import uuid
 from sqlalchemy import Boolean, Column, String
 from sqlalchemy.dialects.postgresql import UUID, TSVECTOR
 
-from migrations.migrator.base import DeclarativeBase
+from migrator.base import DeclarativeBase
 
 class Jobs(DeclarativeBase):
     __tablename__ = "jobs"

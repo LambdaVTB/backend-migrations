@@ -3,8 +3,8 @@ import uuid
 from sqlalchemy import Boolean, Column, String, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 
-from migrations.migrator.base import DeclarativeBase
-from migrations.models.jobs import Jobs
+from migrator.base import DeclarativeBase
+from models.jobs import Jobs
 
 class Users(DeclarativeBase):
     __tablename__ = "users"
