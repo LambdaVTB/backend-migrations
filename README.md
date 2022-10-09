@@ -1,1 +1,5 @@
-# backend-migrations
+# Репозиторий с миграциями для баз данных
+## Запуск
+1) Поднять базы: `make db`
+2) `make prepare`
+3) `make migrate`
