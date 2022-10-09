@@ -17,22 +17,22 @@ shell:
 	poetry shell 
 
 up:
-	docker compose up -d
+	docker-compose up -d
 
 db:
-	docker compose up -d postgresql 
+	docker-compose up -d postgresql 
 
 graph:
-	docker compose up -d neo4j
+	docker-compose up -d neo4j
 
 run:
-	docker compose up -d postgresql 
+	docker-compose up -d postgresql 
 
 down:
-	docker compose down
+	docker-compose down
 
 logs:
-	docker compose logs
+	docker-compose logs
 
 open_db:
 	psql -h ${POSTGRES_HOST} -U ${POSTGRES_USERNAME} -d ${POSTGRES_DATABASE}
