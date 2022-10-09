@@ -5,9 +5,9 @@ import sqlalchemy as sa
 from sqlalchemy import Boolean, Column, String, DateTime, Enum, Computed, Index, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID, TSVECTOR
 
-from migrations.migrator.base import DeclarativeBase
-from migrations.models.raw import Raw
-from migrations.enums.news_types import NewsTypes
+from migrator.base import DeclarativeBase
+from models.raw import Raw
+from enums.news_types import NewsTypes
 
 class News(DeclarativeBase):
     __tablename__ = "news"
